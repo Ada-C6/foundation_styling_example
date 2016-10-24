@@ -9,4 +9,7 @@ class HomepagesController < ApplicationController
     @orbits = [Faker::ChuckNorris.fact, Faker::ChuckNorris.fact, Faker::ChuckNorris.fact]
   end
 
+  def equalizer
+  end
+
 end

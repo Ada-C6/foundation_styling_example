@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :tasks
   resources :tasks
   get 'homepages/index'
-
+  get 'equalizer' => 'homepages#equalizer'
   get 'orbit' => 'homepages#orbit'
   root to: 'homepages#index'
   # The priority is based upon order of creation: first created -> highest priority.
