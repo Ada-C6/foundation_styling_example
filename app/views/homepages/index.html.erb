@@ -1,0 +1,34 @@
+<section class="row">
+  <article class="small-12 columns">
+<h1>Welcome to Chris' Fab Task Tracker</h1>
+  <h2> Top-ten Tasks</h2>
+  <% num = 0 %>
+  <% @topTenTasks.each do |task| %>
+    <section class="row <%= odd_even(num) %>">
+      <h3 class="small-10 column"><%= task.title %></h2>
+      <p class="small-2 column">Priority: <%= task.priority %></p>
+      <% num += 1 %>
+    </section>
+  <% end %>
+</article>
+</section>
+
+
+<div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
+<div class="medium-4 columns">
+  <div class="callout" data-equalizer-watch>
+    <%= image_tag "space2.jpg", alt: "Space Photo" %>
+  </div>
+</div>
+<div class="medium-4 columns">
+  <div class="callout" data-equalizer-watch>
+    <%= image_tag "space3.jpg", alt: "Space Photo" %>
+
+  </div>
+</div>
+<div class="medium-4 columns">
+  <div class="callout" data-equalizer-watch>
+    <%= image_tag "space1.jpg", alt: "Space Photo" %>
+  </div>
+</div>
+</div>

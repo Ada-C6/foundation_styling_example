@@ -1,0 +1,51 @@
+<button class="button" type="button" data-toggle="instruction-dropdown">Instructions</button>
+<div class="dropdown-pane right" id="instruction-dropdown" data-dropdown data-hover="true" data-hover-pane="true">
+  Please fill out the information for your task.  The Title is <strong>required</strong>.
+</div>
+
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+    <div class="switch">
+      <%= f.check_box :completed, class: "switch-input"  %>
+      <%= f.label :completed, "Complete", class: "switch-paddle" %>
+  </div>
+
+  <!-- Priority -->
+  <section class="row">
+    <div class="small-10 columns"></div>
+    <div class="small-2 columns"><%= f.label :priority %></div>
+  </section>
+  <section class="row">
+    <div class="small-10 columns">
+    <div class="slider" data-slider data-initial-start="0">
+      <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="prioritySlider"></span>
+      <span class="slider-fill" data-slider-fill></span>
+    </div>
+  </div>
+  <div class="small-2 columns">
+    <%= f.number_field :priority, id: "prioritySlider"  %>
+  </div>
+</section>
+  <div class="actions">
+    <%= f.submit class: "success button" %>
+  </div>
+<% end %>
